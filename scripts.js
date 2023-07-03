@@ -146,8 +146,8 @@ function getBook(id) {
 // ! Destructuring
 // Objects
 const book = getBook(1);
-const { title, author, genres } = book;
-console.log(title, author);
+const { title, author, genres, publicationDate } = book;
+console.log(title, author, publicationDate);
 //Arrays
 const [primarygenre, secondarygenre] = genres;
 console.log(primarygenre);
@@ -168,3 +168,9 @@ const updatedBook = {
   pages: 1290,
 };
 console.log(updatedBook);
+
+//! Template Literal : ${ANY JS VARIABLE/EXPRESSION}
+const summary = `The author is ${author} and published in ${
+  publicationDate.split("-")[0]
+}`;
+console.log(summary);
