@@ -201,3 +201,9 @@ const essentialsData = books.map((book) => ({
   title: book.title,
   author: book.author,
 }));
+
+//! 2. Filter
+const longBooks = books.filter((book) => book.pages > 500);
+console.log(longBooks);
+
+//! 3. Reduce
