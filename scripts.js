@@ -146,7 +146,7 @@ function getBook(id) {
 // ! Destructuring
 // Objects
 const book = getBook(1);
-const { title, author, genres, publicationDate } = book;
+const { title, author, genres, publicationDate, hasMovieAdaptation } = book;
 console.log(title, author, publicationDate);
 //Arrays
 const [primarygenre, secondarygenre] = genres;
@@ -172,5 +172,11 @@ console.log(updatedBook);
 //! Template Literal : ${ANY JS VARIABLE/EXPRESSION}
 const summary = `The author is ${author} and published in ${
   publicationDate.split("-")[0]
-}`;
+}. The book has ${hasMovieAdaptation ? "" : not} been adapted as a movie`;
 console.log(summary);
+
+//! ShortCircuiting
+// falsy-values -> 0, null, undefined
+// && shortcircuit if first value is false
+// || shortcircuit if first value is true
+// ?? Nullish coalescing operator (??) returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
