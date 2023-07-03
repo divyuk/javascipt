@@ -180,3 +180,24 @@ console.log(summary);
 // && shortcircuit if first value is false
 // || shortcircuit if first value is true
 // ?? Nullish coalescing operator (??) returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+
+//! Optional Chaining
+// ?. if the property is not there
+function getTotalReviews(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodreads + librarything;
+}
+console.log(getTotalReviews(book));
+
+//! Functional Array Method -> doesnt mutate the original array but returns new array
+
+//! 1. MAP
+const books = getBooks();
+const titles = books.map((book) => book.title);
+console.log(titles);
+// To get rid of return simply wrap it with ().
+const essentialsData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
