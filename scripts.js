@@ -150,7 +150,7 @@ const { title, author, genres, publicationDate, hasMovieAdaptation } = book;
 console.log(title, author, publicationDate);
 //Arrays
 const [primarygenre, secondarygenre] = genres;
-console.log(primarygenre);
+console.log(secondarygenre);
 
 //! Rest
 const [PG, SG, ...othersG] = genres; // has to be places at the end
@@ -207,3 +207,34 @@ const longBooks = books.filter((book) => book.pages > 500);
 console.log(longBooks);
 
 //! 3. Reduce
+const allPages = books.reduce((acc, book) => acc + book.pages, 0);
+console.log(allPages);
+
+//! 4. Sort -> Mutates the original Array hence taking a copy using Array.slice()
+const arr = [2, 8, 4, 1, 9, 22, 5, 0];
+const sortedArray = arr.slice().sort((a, b) => a - b);
+console.log(sortedArray);
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+console.log(sortedByPages);
+
+//! Working without mutating the original array.
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of the secrets",
+  author: "J.K. Rowling",
+};
+
+// a) Adding New Object to the array without mutating original and creating a new
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// b) Delete A book
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id != 3);
+console.log(booksAfterDelete);
+
+// c) Update A book
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id == 1 ? { ...book, page: 292 } : book
+);
+console.log(booksAfterUpdate);
