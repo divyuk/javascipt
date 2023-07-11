@@ -238,3 +238,27 @@ const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id == 1 ? { ...book, page: 292 } : book
 );
 console.log(booksAfterUpdate);
+
+//! Asyncronous JS
+// Promises returns -> pending | rejected | fulfilled
+// then  method accepts a callback which gets executed as soon as the promise
+// is fulfilled
+const res = fetch("https://jsonplaceholder.typicode.com/todos/1");
+res
+  .then((r) => r.json())
+  .then((d) => console.log(d))
+  .catch((er) => console.log(er));
+console.log(res);
+console.log("Hi there");
+
+//! Using async/await
+async function getPosts() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const data = await res.json();
+  console.log("data : ", data);
+  return data;
+}
+
+const todo = getPosts();
+console.log(todo);
+console.log("HI");
